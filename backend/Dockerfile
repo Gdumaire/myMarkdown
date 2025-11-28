@@ -1,6 +1,6 @@
 
 # Use the official Node.js image as the base image
-FROM node:latest as build
+FROM node:latest as builder
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm ci
