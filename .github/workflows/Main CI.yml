@@ -2,6 +2,24 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
+  Running tests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job will run tests on the codebase."
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - run: echo "The repository has been checked out."
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '25'
+      - name: Install dependencies
+        run: |
+          pnpm install
+      - name: Run tests
+        run: |
+          pnpm test
+
   Initial-Docker-build:
     runs-on: ubuntu-latest
     steps:
