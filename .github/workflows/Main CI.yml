@@ -20,9 +20,10 @@ jobs:
           pnpm install
       - name: Run tests
         run: |
-          pnpm test
+          pnpm -r test
 
   Initial-Docker-build:
+    depends_on: Running-tests
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
